@@ -16,7 +16,7 @@ use verheesj\KillTheBeesGame\Game\Hive;
     ->register('play')
     ->setCode(function (InputInterface $input, OutputInterface $output) {
         $helper = $this->getHelper('question');
-        $question = new Question('Type HIT to kill a bee!:');
+        $question = new Question('Type HIT to attack a bee!:');
 
         $hive = new Hive;
         $hive->add(Queen::class, 1);
