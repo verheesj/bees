@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+require __DIR__.'/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\Question;
+use verheesj\KillTheBeesGame\Game\Bee\Drone;
+use verheesj\KillTheBeesGame\Game\Bee\Queen;
+use verheesj\KillTheBeesGame\Game\Bee\Worker;
+use verheesj\KillTheBeesGame\Game\BeesGame;
+use verheesj\KillTheBeesGame\Game\Hive;
+
+(new Application('play', '1.0.0'))
+    ->register('play')
+    ->setCode(function (InputInterface $input, OutputInterface $output) {
+        $helper = $this->getHelper('question');
+        $question = new Question('Type HIT to kill a bee!:');
+
+        $hive = new Hive;
+        $hive->add(Queen::class, 1);
+        $hive->add(Drone::class, 5);
+        $hive->add(Worker::class, 8);
+
+        $game = new BeesGame($hive);
+
+        while ($game->playing()) {
+
+            if ($helper->ask($input, $output, $question) == "HIT") {
+                $game->hit();
+            }
+
+            $messages = $game->getMessages();
+
+            foreach ($messages as $message) {
+                $output->writeLn($message);
+            }
+
+        }
+    })
+    ->getApplication()
+    ->run();

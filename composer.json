@@ -1,0 +1,12 @@
+{
+  "name": "verheesj/killthebeesgame",
+  "type": "project",
+  "require": {
+    "symfony/console": "^4.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "verheesj\\KillTheBeesGame\\": "src/"
+    }
+  }
+}
