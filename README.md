@@ -16,9 +16,9 @@ To play type
 `HIT` and hit return. Keep typing `HIT` (and return) until the Beehive has been completely destroyed.
 
 ## Bees
-The number of bees and the type of bees are all set within the project bootstrap:
+The number of bees and the type of bees are all set within the Commands\PlayCommand class:
 
-     // file: beesinthetrap
+     // file: verheesj\KillTheBeesGame\Commands\PlayCommand.php
      [...]
         $hive->add(Queen::class, 1);
         $hive->add(Drone::class, 5);

@@ -2,8 +2,6 @@
 
 namespace verheesj\KillTheBeesGame\Game;
 
-use verheesj\KillTheBeesGame\Interfaces\HiveInterface;
-
 class Hive implements HiveInterface
 {
     protected $bees = [];

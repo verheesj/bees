@@ -2,7 +2,7 @@
 
 namespace verheesj\KillTheBeesGame;
 
-class Game
+class Game implements GameInterface
 {
     protected $messages = [];
     protected $score = 0;
@@ -15,7 +15,7 @@ class Game
 
     public function start(): void
     {
-        $this->setGameState('START');
+        $this->setGameState(SELF::STATE_STARTED);
     }
 
     public function setGameState($state): void
@@ -30,29 +30,12 @@ class Game
 
     public function gameOver(): void
     {
-        $this->setGameState('GAMEOVER');
-    }
-
-    public function reset(): void
-    {
-        $this->setGameState('RESET');
-        $this->resetScore();
-        $this->clearMessages();
-    }
-
-    public function resetScore(): void
-    {
-        $this->score = 0;
-    }
-
-    public function clearMessages(): void
-    {
-        $this->messages = [];
+        $this->setGameState(SELF::STATE_GAMEOVER);
     }
 
     public function playing(): bool
     {
-        return $this->state !== 'GAMEOVER';
+        return $this->state !== SELF::STATE_GAMEOVER;
     }
 
     public function getScore(): int
@@ -65,6 +48,11 @@ class Game
         return $this->messages;
     }
 
+    public function getGameState(): string
+    {
+        return $this->state;
+    }
+
     public function message($message): void
     {
         $this->messages[] = $message;
@@ -72,11 +60,7 @@ class Game
 
     public function isGameOver(): bool
     {
-        return $this->getGameState() === 'GAMEOVER';
+        return $this->getGameState() === SELF::STATE_GAMEOVER;
     }
 
-    public function getGameState(): string
-    {
-        return $this->state;
-    }
 }

@@ -2,19 +2,17 @@
 
 namespace verheesj\KillTheBeesGame\Game;
 
-use verheesj\KillTheBeesGame\Game;
-use verheesj\KillTheBeesGame\Interfaces\GameInterface;
+use verheesj\KillTheBeesGame\Game as BaseGame;
+use verheesj\KillTheBeesGame\GameInterface;
 
-class BeesGame extends Game implements GameInterface
+class Game extends BaseGame implements GameInterface
 {
     protected $hive;
 
     public function __construct(Hive $hive)
     {
         parent::__construct();
-
         $this->hive = $hive;
-
         $this->start();
     }
 

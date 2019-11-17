@@ -3,7 +3,7 @@
 namespace verheesj\KillTheBeesGame\Game\Bee;
 
 use verheesj\KillTheBeesGame\Game\Bee;
-use verheesj\KillTheBeesGame\Interfaces\BeeInterface;
+use verheesj\KillTheBeesGame\Game\BeeInterface;
 
 class Drone extends Bee implements BeeInterface
 {

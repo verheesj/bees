@@ -2,9 +2,7 @@
 
 namespace verheesj\KillTheBeesGame\Game;
 
-use verheesj\KillTheBeesGame\Interfaces\BeeInterface;
-
-class Bee implements BeeInterface
+abstract class Bee implements BeeInterface
 {
     public $killAll = false;
     protected $type = null;
