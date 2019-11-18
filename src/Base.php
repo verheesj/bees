@@ -6,7 +6,7 @@ namespace verheesj\KillTheBeesGame;
  * Class Game
  * @package verheesj\KillTheBeesGame
  */
-class Game implements GameInterface
+class Base implements GameInterface
 {
     /**
      * @var array

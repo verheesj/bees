@@ -2,7 +2,7 @@
 
 namespace verheesj\KillTheBeesGame\Game;
 
-use verheesj\KillTheBeesGame\Game as BaseGame;
+use verheesj\KillTheBeesGame\Base as BaseGame;
 use verheesj\KillTheBeesGame\GameInterface;
 
 /**

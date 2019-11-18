@@ -12,7 +12,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "tests/"
+      "verheesj\\KillTheBeesGame\\Tests\\": "tests/"
     }
   },
   "require-dev": {

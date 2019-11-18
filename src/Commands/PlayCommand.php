@@ -44,6 +44,7 @@ class PlayCommand extends Command
         $game = new Game($hive);
 
         while ($game->playing()) {
+            $game->hit();
 
             if ($helper->ask($input, $output, $question) == Game::ATTACK_ACTION) {
                 $game->hit();
@@ -54,6 +55,7 @@ class PlayCommand extends Command
             foreach ($messages as $message) {
                 $output->writeLn($message);
             }
+
         }
     }
 }

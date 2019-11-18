@@ -5,7 +5,7 @@ namespace verheesj\KillTheBeesGame\Game;
  class Bee implements BeeInterface
 {
     public $killAll = false;
-    protected $type = null;
+    protected $type = 'Bee';
     protected $life = false;
     protected $hp = 0;
     protected $damage = 0;
