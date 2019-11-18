@@ -20,4 +20,16 @@ interface GameInterface
     const ATTACK_ACTION = 'HIT';
     // This is what the user is presented on each turn
     const ATTACK_INTRO = 'Type HIT to attack a bee!';
+
+    // Method which sets the game state to Game over
+    public function gameOver();
+
+    // Method which starts the game
+    public function start();
+
+    // When the game is in play
+    public function playing();
+
+    // Player score method
+    public function score();
 }
