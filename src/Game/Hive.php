@@ -2,10 +2,22 @@
 
 namespace verheesj\KillTheBeesGame\Game;
 
+/**
+ * Class Hive
+ * @package verheesj\KillTheBeesGame\Game
+ */
 class Hive implements HiveInterface
 {
+    /**
+     * @var array
+     */
     protected $bees = [];
 
+    /**
+     * @param $type
+     * @param $count
+     * @return array
+     */
     public function add($type, $count): array
     {
 
@@ -19,11 +31,18 @@ class Hive implements HiveInterface
         return $this->bees;
     }
 
+    /**
+     * @param $type
+     * @return object
+     */
     public function create($type): object
     {
         return new $type();
     }
 
+    /**
+     * @return int
+     */
     public function checkHealth(): int
     {
         foreach ($this->bees as $key => $bee) {
@@ -40,6 +59,9 @@ class Hive implements HiveInterface
         return count($this->bees);
     }
 
+    /**
+     *
+     */
     public function killAll(): void
     {
         foreach ($this->bees as $bee) {
@@ -48,11 +70,17 @@ class Hive implements HiveInterface
 
     }
 
+    /**
+     * @return object
+     */
     public function getRandomBee(): object
     {
         return $this->bees[array_rand($this->bees)];
     }
 
+    /**
+     * @return array
+     */
     public function getBees(): array
     {
         return $this->bees;

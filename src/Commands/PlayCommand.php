@@ -12,14 +12,25 @@ use verheesj\KillTheBeesGame\Game\Bee\Worker;
 use verheesj\KillTheBeesGame\Game\Game;
 use verheesj\KillTheBeesGame\Game\Hive;
 
+/**
+ * Class PlayCommand
+ * @package verheesj\KillTheBeesGame\Commands
+ */
 class PlayCommand extends Command
 {
 
+    /**
+     *
+     */
     protected function configure()
     {
         $this->setName('play');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');

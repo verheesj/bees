@@ -5,10 +5,21 @@ namespace verheesj\KillTheBeesGame\Game;
 use verheesj\KillTheBeesGame\Game as BaseGame;
 use verheesj\KillTheBeesGame\GameInterface;
 
+/**
+ * Class Game
+ * @package verheesj\KillTheBeesGame\Game
+ */
 class Game extends BaseGame implements GameInterface
 {
+    /**
+     * @var Hive
+     */
     protected $hive;
 
+    /**
+     * Game constructor.
+     * @param Hive $hive
+     */
     public function __construct(Hive $hive)
     {
         parent::__construct();
@@ -16,6 +27,9 @@ class Game extends BaseGame implements GameInterface
         $this->start();
     }
 
+    /**
+     * Attack
+     */
     public function hit(): void
     {
         $this->getHive()->checkHealth();
@@ -43,16 +57,25 @@ class Game extends BaseGame implements GameInterface
         }
     }
 
+    /**
+     * @return object
+     */
     public function getHive(): object
     {
         return $this->hive;
     }
 
+    /**
+     * @param $hive
+     */
     public function setHive($hive): void
     {
         $this->hive = $hive;
     }
 
+    /**
+     * Game Over :(
+     */
     public function gameOver(): void
     {
         $this->getHive()->killAll();
