@@ -2,6 +2,7 @@
   "name": "verheesj/killthebeesgame",
   "type": "project",
   "require": {
+    "php": "^7.2",
     "symfony/console": "^4.3"
   },
   "autoload": {

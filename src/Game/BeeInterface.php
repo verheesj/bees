@@ -3,7 +3,7 @@
 namespace verheesj\KillTheBeesGame\Game;
 
 /**
- * Interface BeeInterface
+ * Interface for a Bee
  * @package verheesj\KillTheBeesGame\Game
  */
 interface BeeInterface

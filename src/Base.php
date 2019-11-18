@@ -3,26 +3,32 @@
 namespace verheesj\KillTheBeesGame;
 
 /**
- * Class Game
+ * This is the base game class. Like an abstract class without strictness in "abstract" status.
+ *
  * @package verheesj\KillTheBeesGame
  */
 class Base implements GameInterface
 {
     /**
+     * All output messages to the user are stored within the $messages array
      * @var array
      */
     protected $messages = [];
+
     /**
+     * This is the score of number of hits
      * @var int
      */
     protected $score = 0;
+
     /**
+     * This is the current game state. i.e. Gameover etc.
      * @var
      */
     protected $state;
 
     /**
-     * Game constructor.
+     * Game constructor - start a new game by calling the start() method.
      */
     public function __construct()
     {
@@ -30,7 +36,7 @@ class Base implements GameInterface
     }
 
     /**
-     *
+     * Start a new game, set the game state to const STATE_STARTED.
      */
     public function start(): void
     {
@@ -38,6 +44,7 @@ class Base implements GameInterface
     }
 
     /**
+     * Method which sets the current games state
      * @param $state
      */
     public function setGameState($state): void
@@ -46,7 +53,7 @@ class Base implements GameInterface
     }
 
     /**
-     *
+     * Increment the users score by one
      */
     public function score()
     {
@@ -54,7 +61,7 @@ class Base implements GameInterface
     }
 
     /**
-     *
+     * This function is when the game is over. It sets the Game state to const STATE_GAMEOVER
      */
     public function gameOver(): void
     {
@@ -62,6 +69,9 @@ class Base implements GameInterface
     }
 
     /**
+     * This is a callback for our game while loop. While you are "playing()"
+     * This when this returns true, the game is in play, and when false; the game
+     * is over
      * @return bool
      */
     public function playing(): bool
@@ -70,6 +80,7 @@ class Base implements GameInterface
     }
 
     /**
+     * Return the score of the player
      * @return int
      */
     public function getScore(): int
@@ -78,6 +89,7 @@ class Base implements GameInterface
     }
 
     /**
+     * Get the messages from the game
      * @return array
      */
     public function getMessages(): array
@@ -86,6 +98,7 @@ class Base implements GameInterface
     }
 
     /**
+     * Get the current state of the game.
      * @return string
      */
     public function getGameState(): string
@@ -94,6 +107,7 @@ class Base implements GameInterface
     }
 
     /**
+     * This method adds given $message to the $messages array for output to the player.
      * @param $message
      */
     public function message($message): void
@@ -102,6 +116,7 @@ class Base implements GameInterface
     }
 
     /**
+     * This method returns TRUE if the game is over.
      * @return bool
      */
     public function isGameOver(): bool
