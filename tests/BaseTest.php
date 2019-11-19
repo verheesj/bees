@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace verheesj\KillTheBeesGame\Tests;
 
 use PHPUnit\Framework\TestCase;
 use verheesj\KillTheBeesGame\Base as Game;
