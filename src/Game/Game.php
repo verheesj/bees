@@ -69,7 +69,7 @@ class Game extends BaseGame implements GameInterface
         if ($this->isGameOver()) {
 
             // Output the final message to the user informing them of the score
-            $this->message("It took {$this->getScore()} hits to defeat the Hive!");
+            $this->message("It taken {$this->getScore()} hits and {$this->getCurrentTime()} seconds to defeat the Hive!");
         }
     }
 

@@ -38,9 +38,6 @@ class PlayCommand extends Command
         // We use the Question helper to inform the user how to play the game
         $helper = $this->getHelper('question');
 
-        // This creates the Question to the player
-        $question = new Question(Game::ATTACK_INTRO);
-
         // Create a new hive
         $hive = new Hive();
 
@@ -61,10 +58,14 @@ class PlayCommand extends Command
         // While loop which continues (playing), until the game is over.
         while ($game->playing()) {
 
+            $question = new Question("[Time: {$game->getCurrentTime()} seconds] ".Game::ATTACK_INTRO);
+
             // Turn is when the user is told to type hit, and when they type hit
             if ($helper->ask($input, $output, $question) == Game::ATTACK_ACTION) {
                 // we hit
                 $game->hit();
+
+                unset($question);
             } else {
                 $game->message("WRONG! Try again (Hint: You need to ".Game::ATTACK_ACTION.")!");
             }

@@ -2,6 +2,8 @@
 
 namespace verheesj\KillTheBeesGame;
 
+use DateTime;
+
 /**
  * This is the base game class. Like an abstract class without strictness in "abstract" status.
  *
@@ -28,6 +30,12 @@ class Base implements GameInterface
     protected $state;
 
     /**
+     * Timer
+     * @var
+     */
+    protected $timer;
+
+    /**
      * Game constructor - start a new game by calling the start() method.
      */
     public function __construct()
@@ -40,6 +48,7 @@ class Base implements GameInterface
      */
     public function start(): void
     {
+        $this->startTimer();
         $this->setGameState(SELF::STATE_STARTED);
     }
 
@@ -60,6 +69,18 @@ class Base implements GameInterface
         $this->score++;
     }
 
+    public function startTimer()
+    {
+        $this->timer = new DateTime;
+    }
+
+    public function getCurrentTime()
+    {
+        $now = new DateTime;
+
+        return ($now->format('U') - $this->timer->format('U'));
+    }
+
     /**
      * This function is when the game is over. It sets the Game state to const STATE_GAMEOVER
      */
@@ -76,6 +97,7 @@ class Base implements GameInterface
      */
     public function playing(): bool
     {
+
         return $this->state !== SELF::STATE_GAMEOVER;
     }
 
