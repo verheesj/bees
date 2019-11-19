@@ -5,15 +5,25 @@ namespace verheesj\KillTheBeesGame\Tests;
 use PHPUnit\Framework\TestCase;
 use verheesj\KillTheBeesGame\Base as Game;
 
+/**
+ * Class BaseTest
+ * @package verheesj\KillTheBeesGame\Tests
+ */
 class BaseTest extends TestCase
 {
 
+    /**
+     * __construct
+     */
     public function testInstantiateObject()
     {
         $game = new Game();
         $this->assertIsObject($game);
     }
 
+    /**
+     *  start
+     */
     public function testStart()
     {
         $game = new Game();
@@ -22,6 +32,9 @@ class BaseTest extends TestCase
         $this->assertSame($game->getGameState(), Game::STATE_STARTED);
     }
 
+    /**
+     *  setGameState
+     */
     public function testSetGameState()
     {
         $game = new Game();
@@ -29,12 +42,18 @@ class BaseTest extends TestCase
         $this->assertSame($game->getGameState(), 'TEST');
     }
 
+    /**
+     * getGameState
+     */
     public function testGetGameState()
     {
         $game = new Game();
         $this->assertSame($game->getGameState(), Game::STATE_STARTED);
     }
 
+    /**
+     * score
+     */
     public function testScore()
     {
         $game = new Game();
@@ -51,6 +70,9 @@ class BaseTest extends TestCase
         $this->assertIsInt($game->getScore(), 5);
     }
 
+    /**
+     * gameOver
+     */
     public function testGameOver()
     {
         $game = new Game();
@@ -59,6 +81,9 @@ class BaseTest extends TestCase
         $this->assertIsBool($game->isGameOver(), true);
     }
 
+    /**
+     * playing
+     */
     public function testPlaying()
     {
         $game = new Game();
@@ -67,6 +92,9 @@ class BaseTest extends TestCase
         $this->assertNotEquals($game->getGameState(), Game::STATE_GAMEOVER);
     }
 
+    /**
+     * getScore
+     */
     public function testGetScore()
     {
         $game = new Game();
@@ -74,12 +102,18 @@ class BaseTest extends TestCase
         $this->assertIsInt($game->getScore());
     }
 
+    /**
+     * getMessages
+     */
     public function testGetMessages()
     {
         $game = new Game();
         $this->assertIsArray($game->getMessages());
     }
 
+    /**
+     * message
+     */
     public function testMessage()
     {
         $game = new Game();
@@ -87,6 +121,9 @@ class BaseTest extends TestCase
         $this->assertArrayHasKey(0, $game->getMessages());
     }
 
+    /**
+     * isGameOver
+     */
     public function testIsGameOver()
     {
         $game = new Game();

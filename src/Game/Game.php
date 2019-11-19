@@ -15,23 +15,20 @@ class Game extends BaseGame implements GameInterface
      * This is where we store our hive.
      * @var Hive
      */
-    protected $hive;
+    protected $hive = null;
 
     /**
-     * Game constructor.
-     * We pass the Hive to the Game object on construct
-     * @param Hive $hive
+     * Hit is the function which gets called when the user HITS
      */
-    public function __construct(Hive $hive)
+    public function start(): void
     {
-        // Call our Base __constructor
-        parent::__construct();
+        parent::start();
+        $this->setGameState(self::STATE_PLAYING);
+    }
 
-        // Set the hive
-        $this->hive = $hive;
-
-        // Start the game
-        $this->start();
+    public function hasHive()
+    {
+        return $this->hive;
     }
 
     /**

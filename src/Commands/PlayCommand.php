@@ -50,7 +50,13 @@ class PlayCommand extends Command
         $hive->add(Worker::class, 8);
 
         // Create a new game
-        $game = new Game($hive);
+        $game = new Game();
+
+        // Set the hive
+        $game->setHive($hive);
+
+        // Start the game
+        $game->start();
 
         // While loop which continues (playing), until the game is over.
         while ($game->playing()) {
@@ -59,6 +65,8 @@ class PlayCommand extends Command
             if ($helper->ask($input, $output, $question) == Game::ATTACK_ACTION) {
                 // we hit
                 $game->hit();
+            } else {
+                $game->message("WRONG! Try again (Hint: You need to ".Game::ATTACK_ACTION.")!");
             }
 
             // Get the messages for output to the player

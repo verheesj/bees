@@ -16,6 +16,15 @@ use verheesj\KillTheBeesGame\Game\Hive;
 class GameTest extends TestCase
 {
 
+    /**
+     * __construct
+     */
+    public function testInstantiateObject()
+    {
+        $game = new Game();
+        $this->assertIsObject($game);
+    }
+
     public function testHit()
     {
 
@@ -24,7 +33,8 @@ class GameTest extends TestCase
         $hive->add(Worker::class, 10);
         $hive->add(Drone::class, 10);
 
-        $game = new Game($hive);
+        $game = new Game;
+        $game->setHive($hive);
 
         while($game->playing())
         {
@@ -37,7 +47,8 @@ class GameTest extends TestCase
     public function testGetHive()
     {
         $hive = new Hive();
-        $game = new Game($hive);
+        $game = new Game();
+        $game->setHive($hive);
 
         $this->assertIsObject($game->getHive());
     }
@@ -48,9 +59,13 @@ class GameTest extends TestCase
     public function testSetHive()
     {
         $hive = new Hive();
-        $game = new Game($hive);
+
+        $game = new Game();
+        $game->setHive($hive);
+
         $hive2 = new Hive();
         $game->setHive($hive2);
+
         $this->assertIsObject($game->getHive());
     }
 
@@ -62,7 +77,8 @@ class GameTest extends TestCase
         $hive->add(Worker::class, 10);
         $hive->add(Drone::class, 10);
 
-        $game = new Game($hive);
+        $game = new Game();
+        $game->setHive($hive);
 
         $this->assertIsBool($game->isGameOver(), false);
 

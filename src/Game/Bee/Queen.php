@@ -38,7 +38,7 @@ class Queen extends Bee implements BeeInterface
         // We need to call this to ensure the parent Bee class is called, else it will be overriden
         parent::__construct();
 
-        // Set the killAll flag to TRUE, so when the Queen dies our method in the Hive can kill all the Bees
+        // Set the killAll flag to TRUE, so when the Queen dies our method in the Hive can kill all the Bee
         $this->killAll = true;
     }
 }

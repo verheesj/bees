@@ -2,6 +2,8 @@
 
 namespace verheesj\KillTheBeesGame\Game;
 
+use Exception;
+
 /**
  * Class Hive
  * This class is responsible a BeeHive.
@@ -17,10 +19,11 @@ class Hive implements HiveInterface
     protected $bees = [];
 
     /**
-     * Method which is responsible for adding $count of Bees.
+     * Method which is responsible for adding $count of Bee.
      *
      * @param $type
      * @param $count
+     *
      * @return array
      */
     public function add($type, $count): array
@@ -47,7 +50,7 @@ class Hive implements HiveInterface
         try {
             $class = new $type();
             return $class;
-        } catch(\Exception $e) {
+        } catch (Exception $e) {
             return $e;
         }
 
@@ -58,7 +61,7 @@ class Hive implements HiveInterface
      * Loop through the Hive $bees array, on every iteration check the health of the Bee.
      * The health determines whether the Bee is alive or dead.
      * We unset the given Bee if it is dead so we know when they are all dead.
-     * If the Bee is dead, we check $killAll, if TRUE, we invoke the function which kills all the Bees in the hive.
+     * If the Bee is dead, we check $killAll, if TRUE, we invoke the function which kills all the Bee in the hive.
      *
      * @return int
      */
@@ -86,7 +89,7 @@ class Hive implements HiveInterface
     }
 
     /**
-     * Kill all Bees within the Hive
+     * Kill all Bee within the Hive
      */
     public function killAll(): void
     {
@@ -108,7 +111,7 @@ class Hive implements HiveInterface
     }
 
     /**
-     * Get all the Bees from the Hive
+     * Get all the Bee from the Hive
      * @return array
      */
     public function getBees(): array

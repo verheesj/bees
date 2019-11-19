@@ -2,13 +2,21 @@
 
 namespace verheesj\KillTheBeesGame\Tests\Game;
 
-use phpDocumentor\Reflection\Types\Object_;
 use PHPUnit\Framework\TestCase;
 use verheesj\KillTheBeesGame\Game\Bee;
 use verheesj\KillTheBeesGame\Game\Hive;
 
 class HiveTest extends TestCase
 {
+
+    /**
+     * __construct
+     */
+    public function testInstantiateObject()
+    {
+        $hive = new Hive();
+        $this->assertIsObject($hive);
+    }
 
     public function testCreate()
     {
